@@ -1,6 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 
 
@@ -78,7 +77,7 @@ public class ImmutableLinkedList implements ImmutableList{
             tmp.setNext(element);
             tmp = element;
 
-            while(current_tmp!= null){
+            while(current_tmp != null){
                 Node n = current_tmp.clone();
                 tmp.setNext(n);
                 tmp = n;
@@ -163,7 +162,12 @@ public class ImmutableLinkedList implements ImmutableList{
                 tmp = element;
             }
 
-            Node current_tmp = current.getNext();
+            Node current_tmp;
+            if(current.getNext().getData() == null){
+                current_tmp = current;
+            }else{
+                current_tmp = current.getNext();
+            }
             while(current_tmp != null){
                 Node n = current_tmp.clone();
                 tmp.setNext(n);
@@ -305,7 +309,7 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public boolean isEmpty() {
         sizeOfList = size();
-        if(sizeOfList == 0){
+        if(sizeOfList == 1 && startN.getData() == null){
             return true;
         }else{
             return false;
@@ -329,7 +333,7 @@ public class ImmutableLinkedList implements ImmutableList{
         if (startN.getData() != null){
             presentation += startN.getData();
             Node start = startN;
-            while(start.getNext() != null){
+            while(start.getNext()!= null){
                 presentation += " --> ";
                 start = start.getNext();
                 presentation += start.getData();
@@ -342,68 +346,4 @@ public class ImmutableLinkedList implements ImmutableList{
     }
 
 
-    public static void main(String[] args){
-        ImmutableList m = new ImmutableLinkedList();
-        System.out.println("m: "+ m);
-        m = m.add(1);
-
-        ImmutableList m_1 = m.add(2);
-        m_1 = m_1.add(3);
-        m_1 = m_1.add(4);
-        m_1 = m_1.add(5);
-        m_1 = m_1.add(6);
-        m_1 = m_1.add(7);
-        m_1 = m_1.add(8);
-        m_1 = m_1.add(9);
-        m_1 = m_1.add(10);
-        System.out.println("m: " + m);
-        System.out.println("m_1(add to m): " +m_1);
-        ImmutableList m_2 = m_1.set(0, 100);
-        System.out.println("m: " +m);
-        System.out.println("m_2(set to m on 0 index 100): " +m_2);
-
-        ImmutableList m_3 = m_1;
-        System.out.println("m_3(= m_1): " +m_3);
-        m_3=  m_3.add(0, 12);
-        System.out.println("m_3(add to m_3 on 0 index 12): " +m_3);
-
-        ImmutableList m_4 = m_1.add(4, 100);
-        System.out.println("m_4(add to m_1 on 4 index 100): " +m_4);
-
-        Integer[] c = {100, 295, 300, 127};
-        ImmutableList m_5 = m_1.addAll(c);
-        System.out.println("m_5(add to m_1 list of numbers): " +m_5);
-
-        ImmutableList m_6 = new ImmutableLinkedList();
-        Integer[] c_0 = {100, 200, 300, 400};
-        m_6 = m_6.addAll(c_0);
-        System.out.println("m_6(add to empty list of numbers): " +m_6);
-
-        System.out.println("m_1(element on 2 index): " +m_1.get(2));
-        System.out.println("m_5(element on 10 index): " + m_5.get(10));
-
-        System.out.println("m_6 size: "+ m_6.size());
-
-        ImmutableList m_7 = m_1.clear();
-        System.out.println("m_7(m_1.clear()): "+m_7);
-        System.out.println("m_1: "+m_1);
-
-        ImmutableList m_8 = m_1.remove(2);
-        System.out.println("m_8 (m_1 remove el on 2 index): "+ m_8);
-
-        System.out.println(m_1 + "  <-- m_1 index of element 3: "+m_1.indexOf(3));
-        System.out.println(m_1 + "  <-- m_1 index of element 11: "+m_1.indexOf(11));
-
-        System.out.println("m_1 is empty?  "+ m_1.isEmpty());
-
-        Integer[] c1 = {100, 200, 300, 400};
-        ImmutableList m_9 = m_1.addAll(2, c1);
-        System.out.println("m_9: "+m_9);
-
-        Integer [] c1_0 = {100, 200, 300, 400};
-        ImmutableList m_10 = m_1.addAll(0, c1_0);
-        System.out.println("m_10: "+ m_10);
-
-        System.out.println(Arrays.toString(m_1.toArray()));
-    }
 }
