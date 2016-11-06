@@ -1,5 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 
@@ -403,6 +404,6 @@ public class ImmutableLinkedList implements ImmutableList{
         ImmutableList m_10 = m_1.addAll(0, c1_0);
         System.out.println("m_10: "+ m_10);
 
-        System.out.println(m_1.toArray());
+        System.out.println(Arrays.toString(m_1.toArray()));
     }
 }
