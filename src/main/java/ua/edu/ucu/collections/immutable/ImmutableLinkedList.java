@@ -345,5 +345,7 @@ public class ImmutableLinkedList implements ImmutableList{
         return presentation;
     }
 
-
+    public Object getStart(){
+        return startN.getData();
+    }
 }
