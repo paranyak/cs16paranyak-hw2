@@ -48,7 +48,7 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public ImmutableList add(int index, Object e) {
         sizeOfList = size();
-        if (index < 0 || index > sizeOfList || isEmpty()){
+        if (index < 0 || index > sizeOfList){
             throw new InputMismatchException("Index out of range");
         }
         Node newCurrent;
@@ -182,7 +182,7 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public Object get(int index) {
         sizeOfList = size();
-        if (index < 0 || index > sizeOfList || isEmpty()){
+        if (index < 0 || index > sizeOfList ){
             throw new InputMismatchException("Index out of range");
         }
         Node tmp = startN;
@@ -196,7 +196,7 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public ImmutableList remove(int index) {
         sizeOfList = size();
-        if (index < 0 || index > sizeOfList || isEmpty()){
+        if (index < 0 || index > sizeOfList ){
             throw new InputMismatchException("Index out of range");
         }
         Node newCurrent;
@@ -236,7 +236,7 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public ImmutableList set(int index, Object e) {
         sizeOfList = size();
-        if (index < 0 || index > sizeOfList || isEmpty()){
+        if (index < 0 || index > sizeOfList ){
             throw new InputMismatchException("Index out of range");
         }
         Node newCurrent;

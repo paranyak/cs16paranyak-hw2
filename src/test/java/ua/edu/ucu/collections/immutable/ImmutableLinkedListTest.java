@@ -31,15 +31,15 @@ public class ImmutableLinkedListTest {
         assertEquals(" 1 --> 2 --> 3 --> 4 --> 5", actualResult.toString());
     }
 
-   /* @Test
+    /*@Test
     public void testMethodAddIndex() {
         ImmutableList m = new ImmutableLinkedList();
         m = m.add(0, 1);
         m = m.add(1, 2);
         ImmutableList second = m.add(2, 4);
-        second = second.add(2, 3);
+        second = second.add(0, 3);
         ImmutableList actualResult = second;
-        assertEquals(" 1 --> 2 --> 3 --> 4", actualResult.toString());
+        assertEquals(" 3 --> 1 --> 2 --> 4", actualResult.toString());
     }*/
 
     @Test(expected = InputMismatchException.class)
