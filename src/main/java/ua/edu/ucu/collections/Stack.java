@@ -19,5 +19,8 @@ public class Stack {
 
         myList = (ImmutableLinkedList) myList.add(e);
     }
-    
+
+    public  String toString(){
+        return myList.toString();
+    }
 }
