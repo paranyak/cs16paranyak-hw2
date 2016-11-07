@@ -19,6 +19,10 @@ public class Queue {
         myList = (ImmutableLinkedList) myList.add(e);
     }
 
+    public String toString(){
+        return myList.toString();
+    }
+
 
 
 }
